@@ -1,6 +1,6 @@
 -- 1. Create Transactions Table
 CREATE OR REPLACE TABLE transactions (
-    transaction_id STRING PRIMARY KEY,
+    transaction_id INT PRIMARY KEY,
     customer_id STRING,
     transaction_amount FLOAT,
     merchant_category STRING,
@@ -13,7 +13,7 @@ CREATE OR REPLACE TABLE transactions (
 
 -- 2. Create Customer Complaints Table
 CREATE OR REPLACE TABLE customer_complaints (
-    complaint_id STRING PRIMARY KEY,
+    complaint_id INT PRIMARY KEY,
     customer_id STRING,
     complaint_text STRING,
     sentiment_score FLOAT,

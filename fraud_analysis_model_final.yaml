@@ -1,0 +1,121 @@
+name: Fraud Analysis Model
+description: Semantic model for analyzing fraud data.
+
+tables:
+  - name: FT_Prediction
+    description: Table for fraud prediction results.
+    base_table:
+      database: FRAUD_DB
+      schema: PUBLIC
+      table: FT_Prediction
+    primary_key:
+      columns:
+        - TRANSACTION_ID
+        - CUSTOMER_ID
+    measures:
+      - name: transaction_amount
+        expr: TRANSACTION_AMOUNT
+        description: The amount of the transaction.
+        data_type: number
+        default_aggregation: sum
+      - name: sentiment_score
+        expr: SENTIMENT_SCORE
+        description: Sentiment score associated with the transaction.
+        data_type: number
+        default_aggregation: avg
+      - name: predict_proba_0
+        expr: PREDICT_PROBA_0
+        description: Probability of the transaction not being fraudulent.
+        data_type: number
+        default_aggregation: avg
+      - name: predict_proba_1
+        expr: PREDICT_PROBA_1
+        description: Probability of the transaction being fraudulent.
+        data_type: number
+        default_aggregation: avg
+    dimensions:
+      - name: transaction_id
+        expr: TRANSACTION_ID
+        description: Unique identifier for the transaction.
+        data_type: categorical
+      - name: customer_id
+        expr: CUSTOMER_ID
+        description: Unique identifier for the customer.
+        data_type: categorical
+      - name: is_fraud
+        expr: IS_FRAUD
+        description: Whether the transaction was fraudulent (1) or not (0).
+        data_type: categorical
+      - name: merchant_category
+        expr: MERCHANT_CATEGORY
+        description: Category of the merchant involved in the transaction.
+        data_type: categorical
+      - name: device_type
+        expr: DEVICE_TYPE
+        description: Type of device used for the transaction.
+        data_type: categorical
+      - name: transaction_day
+        expr: TRANSACTION_DAY
+        description: Day of the week when the transaction occurred.
+        data_type: categorical
+      - name: location
+        expr: LOCATION
+        description: Location where the transaction was made.
+        data_type: categorical
+    time_dimensions:
+      - name: transaction_time
+        expr: TRANSACTION_TIME
+        description: Timestamp of the transaction.
+        data_type: timestamp
+        unique: false
+
+relationships:
+  - name: prediction_to_transaction
+    left_table: FT_Prediction
+    right_table: FT_Prediction
+    relationship_columns:
+      - left_column: TRANSACTION_ID
+        right_column: TRANSACTION_ID
+    join_type: left_outer
+    relationship_type: many_to_one
+
+verified_queries:
+  - name: "Fraud probability by customer"
+    question: "What is the fraud probability for each customer?"
+    sql: "
+SELECT
+  CUSTOMER_ID,
+  AVG(PREDICT_PROBA_1) AS avg_fraud_probability
+FROM
+  FT_Prediction
+GROUP BY
+  CUSTOMER_ID
+ORDER BY
+  avg_fraud_probability DESC;
+  "
+  - name: "Total transaction amount by merchant category"
+    question: "What is the total transaction amount by merchant category?"
+    sql: "
+SELECT
+  MERCHANT_CATEGORY,
+  SUM(TRANSACTION_AMOUNT) AS total_transaction_amount
+FROM
+  FT_Prediction
+GROUP BY
+  MERCHANT_CATEGORY
+ORDER BY
+  total_transaction_amount DESC;
+  "
+  - name: "Total transaction amount by location"
+    question: "What is the total transaction amount by location?"
+    sql: "
+SELECT
+  LOCATION,
+  SUM(TRANSACTION_AMOUNT) AS total_transaction_amount
+FROM
+  FT_Prediction
+GROUP BY
+  LOCATION
+ORDER BY
+  total_transaction_amount DESC;
+  "
