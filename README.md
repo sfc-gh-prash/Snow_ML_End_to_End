@@ -55,7 +55,7 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 
 ### Links to artifacts 
 
-- [Notebook](src/AI_ML_NOTEBOOK_V1.ipynb)
+- [Notebook](src/END_2_END_ML_MONITOR_FS.ipynb)
 
 - [Data Generation](src/datagneration.sql)
 
