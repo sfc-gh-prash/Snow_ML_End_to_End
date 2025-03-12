@@ -1,4 +1,5 @@
 name: Fraud Analysis Model
+
 description: Semantic model for analyzing fraud data.
 
 tables:
@@ -69,6 +70,57 @@ tables:
         data_type: timestamp
         unique: false
 
+  - name: FEATURE_IMPORTANCE
+    description: Table containing feature importances.
+    base_table:
+      database: FRAUD_DB
+      schema: PUBLIC
+      table: FEATURE_IMPORTANCE_DF
+    dimensions:
+      - name: feature
+        expr: FEATURE
+        description: Name of the feature.
+        data_type: categorical
+    measures:
+      - name: importance
+        expr: IMPORTANCE
+        description: Importance score of the feature.
+        data_type: number
+        default_aggregation: avg
+
+  - name: CUSTOMER_COMPLAINTS
+    description: Table containing customer complaints.
+    base_table:
+      database: FRAUD_DB
+      schema: PUBLIC
+      table: CUSTOMER_COMPLAINTS
+    primary_key:
+      columns:
+          - COMPLAINT_ID
+    dimensions:
+      - name: complaint_id
+        expr: COMPLAINT_ID
+        description: Unique identifier for the complaint.
+        data_type: categorical
+      - name: customer_id
+        expr: CUSTOMER_ID
+        description: The customer associated with the complaint.
+        data_type: categorical  # ADDED CUSTOMER_ID AS DIMENSION
+      - name: complaint_text
+        expr: COMPLAINT_TEXT
+        description: The text of the complaint.
+        data_type: text
+      - name: keywords
+        expr: KEYWORDS
+        description: Keywords associated with the complaint.
+        data_type: text
+    time_dimensions:
+      - name: complaint_time
+        expr: COMPLAINT_TIME
+        description: Timestamp of the complaint.
+        data_type: timestamp
+        unique: false
+
 relationships:
   - name: prediction_to_transaction
     left_table: FT_Prediction
@@ -79,17 +131,140 @@ relationships:
     join_type: left_outer
     relationship_type: many_to_one
 
+  - name: complaint_to_customer
+    left_table: CUSTOMER_COMPLAINTS
+    right_table: FT_Prediction
+    relationship_columns:
+      - left_column: CUSTOMER_ID
+        right_column: CUSTOMER_ID
+    join_type: left_outer
+    relationship_type: many_to_one
+
 verified_queries:
   - name: "Fraud probability by customer"
     question: "What is the fraud probability for each customer?"
-    sql: "
-SELECT
-  CUSTOMER_ID,
-  AVG(PREDICT_PROBA_1) AS avg_fraud_probability
-FROM
-  FT_PREDICTION_FINAL
-GROUP BY
-  CUSTOMER_ID
-ORDER BY
-  avg_fraud_probability DESC;
-  "
+    sql: |
+      SELECT
+        CUSTOMER_ID,
+        AVG(PREDICT_PROBA_1) AS avg_fraud_probability
+      FROM
+        FT_PREDICTION_FINAL
+      GROUP BY
+        CUSTOMER_ID
+      ORDER BY
+        avg_fraud_probability DESC;
+
+  - name: "Average Transaction Amount by Merchant Category"
+    question: "What is the average transaction amount for each merchant category?"
+    sql: |
+      SELECT
+        MERCHANT_CATEGORY,
+        AVG(TRANSACTION_AMOUNT) AS avg_transaction_amount
+      FROM
+        FT_PREDICTION_FINAL
+      GROUP BY
+        MERCHANT_CATEGORY
+      ORDER BY
+        avg_transaction_amount DESC;
+
+  - name: "Fraudulent Transaction Count by Device Type"
+    question: "How many fraudulent transactions are associated with each device type?"
+    sql: |
+      SELECT
+        DEVICE_TYPE,
+        COUNT(*) AS fraudulent_transaction_count
+      FROM
+        FT_PREDICTION_FINAL
+      WHERE
+        IS_FRAUD = 1
+      GROUP BY
+        DEVICE_TYPE
+      ORDER BY
+        fraudulent_transaction_count DESC;
+
+  - name: "Average Sentiment Score for Fraudulent Transactions"
+    question: "What is the average sentiment score for fraudulent transactions?"
+    sql: |
+      SELECT
+        AVG(SENTIMENT_SCORE) AS avg_sentiment_score
+      FROM
+        FT_PREDICTION_FINAL
+      WHERE
+        IS_FRAUD = 1;
+
+  - name: "Transaction Amount Distribution by Transaction Day"
+    question: "How is the transaction amount distributed across different days of the week?"
+    sql: |
+      SELECT
+        TRANSACTION_DAY,
+        SUM(TRANSACTION_AMOUNT) AS total_transaction_amount
+      FROM
+        FT_PREDICTION_FINAL
+      GROUP BY
+        TRANSACTION_DAY
+      ORDER BY
+        total_transaction_amount DESC;
+
+  - name: "Fraud Probability Trend Over Time (Weekly)"
+    question: "What is the trend of fraud probability over time, aggregated weekly?"
+    sql: |
+      SELECT
+        DATE_TRUNC('week', TRANSACTION_TIME) AS transaction_week,
+        AVG(PREDICT_PROBA_1) AS avg_fraud_probability
+      FROM
+        FT_PREDICTION_FINAL
+      GROUP BY
+        transaction_week
+      ORDER BY
+        transaction_week;
+
+  - name: "Top Features Influencing Fraud"
+    question: "What are the top features influencing fraud predictions?"
+    sql: |
+      SELECT
+        FEATURE,
+        IMPORTANCE
+      FROM
+        FEATURE_IMPORTANCE_DF
+      ORDER BY
+        IMPORTANCE DESC
+      LIMIT 10;
+
+  - name: "Customer Complaints by Keyword"
+    question: "What is the distribution of customer complaints by keyword?"
+    sql: |
+      SELECT
+        KEYWORDS,
+        COUNT(*) AS complaint_count
+      FROM
+        CUSTOMER_COMPLAINTS
+      GROUP BY
+        KEYWORDS
+      ORDER BY
+        complaint_count DESC;
+
+  - name: "Fraud Probability for Customers with Specific Complaints"
+    question: "What is the average fraud probability for customers with complaints containing specific keywords?"
+    sql: |
+      SELECT
+        AVG(p.PREDICT_PROBA_1) AS avg_fraud_probability
+      FROM
+        FT_PREDICTION_FINAL p
+      JOIN
+        CUSTOMER_COMPLAINTS c ON p.CUSTOMER_ID = c.CUSTOMER_ID
+      WHERE
+        c.KEYWORDS LIKE '%fraud%'  -- Replace with your desired keyword
+        OR c.KEYWORDS LIKE '%scam%';
+
+  - name: "Complaint Trends Over Time"
+    question: "What is the trend of customer complaints over time?"
+    sql: |
+      SELECT
+        DATE_TRUNC('month', COMPLAINT_TIME) AS complaint_month,
+        COUNT(*) AS complaint_count
+      FROM
+        CUSTOMER_COMPLAINTS
+      GROUP BY
+        complaint_month
+      ORDER BY
+        complaint_month;

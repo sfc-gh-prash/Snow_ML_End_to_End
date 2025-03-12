@@ -7,7 +7,7 @@ tables:
     base_table:
       database: FRAUD_DB
       schema: PUBLIC
-      table: FT_Prediction
+      table: FT_PREDICTION_FINAL
     primary_key:
       columns:
         - TRANSACTION_ID
@@ -60,7 +60,7 @@ tables:
         data_type: categorical
       - name: location
         expr: LOCATION
-        description: Location where the transaction was made.
+        description: Location of the transaction.
         data_type: categorical
     time_dimensions:
       - name: transaction_time
@@ -87,35 +87,9 @@ SELECT
   CUSTOMER_ID,
   AVG(PREDICT_PROBA_1) AS avg_fraud_probability
 FROM
-  FT_Prediction
+  FT_PREDICTION_FINAL
 GROUP BY
   CUSTOMER_ID
 ORDER BY
   avg_fraud_probability DESC;
-  "
-  - name: "Total transaction amount by merchant category"
-    question: "What is the total transaction amount by merchant category?"
-    sql: "
-SELECT
-  MERCHANT_CATEGORY,
-  SUM(TRANSACTION_AMOUNT) AS total_transaction_amount
-FROM
-  FT_Prediction
-GROUP BY
-  MERCHANT_CATEGORY
-ORDER BY
-  total_transaction_amount DESC;
-  "
-  - name: "Total transaction amount by location"
-    question: "What is the total transaction amount by location?"
-    sql: "
-SELECT
-  LOCATION,
-  SUM(TRANSACTION_AMOUNT) AS total_transaction_amount
-FROM
-  FT_Prediction
-GROUP BY
-  LOCATION
-ORDER BY
-  total_transaction_amount DESC;
   "
