@@ -57,7 +57,7 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 
 - [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
 
-- [Data Generation](src/fraud_analysis_model_final.yaml)
+- [Data Generation](src/datagneration.sql)
 
 - [Refrence Architecture](src/fraud_analysis_model_final.yaml)
 
