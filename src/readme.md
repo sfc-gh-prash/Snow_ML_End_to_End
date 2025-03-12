@@ -73,7 +73,6 @@ This project showcases how to build a production-ready fraud detection system us
 - [Env Yml](src/environment.yml)
 
 
-
 ## Project Architecture
 
 ```
