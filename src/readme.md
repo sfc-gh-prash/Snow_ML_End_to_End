@@ -33,6 +33,22 @@ This project showcases how to build a production-ready fraud detection system us
 - Deploying it as Streamlit App for business users to make informaed decison 
 
 
+### Links to artifacts 
+
+- [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
+
+- [Data Generation](src/fraud_analysis_model_final.yaml)
+
+- [Refrence Architecture](src/fraud_analysis_model_final.yaml)
+
+- [Yaml File](src/fraud_analysis_model_final.yaml)
+
+- [Streamlit -App](src/streamlit_app.py)
+
+- [Env Yml](src/environment.yml)
+
+
+
 ## Project Architecture
 
 ```
@@ -87,19 +103,7 @@ This project showcases how to build a production-ready fraud detection system us
 ```
 
 
-### Links to artifacts 
 
-- [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
-
-- [Data Generation](src/fraud_analysis_model_final.yaml)
-
-- [Refrence Architecture](src/fraud_analysis_model_final.yaml)
-
-- [Yaml File](src/fraud_analysis_model_final.yaml)
-
-- [Streamlit -App](src/streamlit_app.py)
-
-- [Env Yml](src/environment.yml)
 
 ### Instructions 
 
