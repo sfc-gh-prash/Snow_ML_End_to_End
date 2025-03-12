@@ -4,11 +4,6 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 
 ![Snowflake ML Pipeline](https://via.placeholder.com/800x400?text=Snowflake+ML+Pipeline+Diagram)
 
-C
-
-
-
-
 ## Overview
 
 This project showcases how to build a production-ready fraud detection system using Snowflake's data cloud platform. We demonstrate the entire ML lifecycle from data preparation to model deployment and monitoring, with a focus on leveraging Snowflake's native capabilities for each step of the process.
@@ -97,6 +92,8 @@ This project showcases how to build a production-ready fraud detection system us
 - [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
 
 - [Data Generation](src/fraud_analysis_model_final.yaml)
+
+- [Refrence Architecture](src/fraud_analysis_model_final.yaml)
 
 - [Yaml File](src/fraud_analysis_model_final.yaml)
 
