@@ -58,6 +58,7 @@ This project showcases how to build a production-ready fraud detection system us
 - Create Streamlit application for fraud analysts to make informed decisions about flagged transactions leveraging cortex analyst on predictions
 
 
+
 ### Links to artifacts 
 
 - [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
@@ -71,7 +72,6 @@ This project showcases how to build a production-ready fraud detection system us
 - [Streamlit -App](src/streamlit_app.py)
 
 - [Env Yml](src/environment.yml)
-
 
 ## Project Architecture
 
