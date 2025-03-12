@@ -1,12 +1,7 @@
-# End-to-End ML in Snowflake: Fraud Detection Pipeline
+
+## End-to-End ML in Snowflake: Fraud Detection Pipeline
 
 This repository demonstrates a comprehensive end-to-end machine learning workflow built entirely in Snowflake, showcasing the platform's capabilities for advanced fraud detection. From data generation to model deployment and monitoring, this project leverages Snowflake's latest ML features including Cortex, Feature Store, Model Registry, and Streamlit integration.
-
-![Snowflake ML Pipeline](https://via.placeholder.com/800x400?text=Snowflake+ML+Pipeline+Diagram)
-
-## Overview
-
-This project showcases how to build a production-ready fraud detection system using Snowflake's data cloud platform. We demonstrate the entire ML lifecycle from data preparation to model deployment and monitoring, with a focus on leveraging Snowflake's native capabilities for each step of the process.
 
 #### Demo Notebook showcasing an end-to-end ML worfklow in Snowflake including the following components
 
@@ -56,7 +51,6 @@ This project showcases how to build a production-ready fraud detection system us
 ###### Deployment
 
 - Create Streamlit application for fraud analysts to make informed decisions about flagged transactions leveraging cortex analyst on predictions
-
 
 
 ### Links to artifacts 
@@ -125,8 +119,6 @@ This project showcases how to build a production-ready fraud detection system us
                       │ Cortex Analyst     │
                       └────────────────────┘
 ```
-
-
 
 
 ### Instructions 
