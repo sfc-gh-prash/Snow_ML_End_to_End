@@ -4,38 +4,73 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 
 ![Snowflake ML Pipeline](https://via.placeholder.com/800x400?text=Snowflake+ML+Pipeline+Diagram)
 
-C
-
-
-
-
 ## Overview
 
 This project showcases how to build a production-ready fraud detection system using Snowflake's data cloud platform. We demonstrate the entire ML lifecycle from data preparation to model deployment and monitoring, with a focus on leveraging Snowflake's native capabilities for each step of the process.
 
-##### Demo Notebook showcasing an end-to-end ML worfklow in Snowflake including the following components
+#### Demo Notebook showcasing an end-to-end ML worfklow in Snowflake including the following components
 
-- Data Generation 
-- EDA 
-- Feature Engineering, using snowpark & cortex 
-- Use Feature Store to track engineered features
-    - Store feature defintions in feature store for reproducible computation of ML features
-- Train two SnowML Models & Sckitleant model 
-    - Xgboost with tree booster, linear booster 
-    - Sckitlearn - multiple models 
-- Register both models in Snowflake model registry
-    - Explore model registry capabilities such as metadata tracking, inference, and explainability
-- Set up Model Monitor to track 1 year of prediction and actual amount 
-    - Compute performance metrics such a F1, Precision, Recall
-    - Inspect model drift (i.e. how much has the average predicted repayment rate changed day-to-day)
-    - Compare models side-by-side to understand which model should be used in production
-    - Identify and understand data issues
-- Track data and model lineage throughout
-    - View and understand
-      - The origin of the data used for computed features
-      - The data used for model training
-      - The available model versions being monitored
-- Deploying it as Streamlit App for business users to make informaed decison 
+##### Data Workflow for Fraud Detection
+
+###### Data Analysis & Preparation
+
+- Perform exploratory data analysis (EDA) on transaction data
+- Engineer fraud detection features using Snowpark & Cortex
+- Utilize Feature Store to:
+    - Track engineered fraud indicators
+    - Store feature definitions for reproducible fraud detection signals
+
+###### Model Development
+
+- Train multiple fraud detection models:
+    - SnowML XGBoost with tree booster
+    - SnowML XGBoost with linear booster
+    - Multiple scikit-learn classification models
+
+- Register all models in Snowflake model registry
+- Explore registry capabilities:
+    - Metadata tracking
+    - Inference for fraud predictions
+    - Explainability of fraud determinations
+
+###### Model Evaluation & Monitoring
+
+- Configure Model Monitor to track 1 year of fraud predictions against confirmed fraud cases
+- Compute key performance metrics:
+    - F1 score (balance between precision and recall)
+    - Precision (minimize false positives)
+    -  Recall (capture all actual fraud)
+- Analyze model drift (track changes in fraud detection patterns day-to-day)
+-  Compare models side-by-side to determine best production candidate
+- Identify and address data quality issues in fraud detection pipeline
+
+
+###### Lineage & Governance
+
+- Track comprehensive data and model lineage throughout the fraud detection system
+- Maintain visibility into:
+    - Origin of data used for computed fraud indicators
+    - Datasets used for fraud model training
+    - Available fraud detection model versions under monitoring
+
+###### Deployment
+
+- Create Streamlit application for fraud analysts to make informed decisions about flagged transactions leveraging cortex analyst on predictions
+
+
+### Links to artifacts 
+
+- [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
+
+- [Data Generation](src/fraud_analysis_model_final.yaml)
+
+- [Refrence Architecture](src/fraud_analysis_model_final.yaml)
+
+- [Yaml File](src/fraud_analysis_model_final.yaml)
+
+- [Streamlit -App](src/streamlit_app.py)
+
+- [Env Yml](src/environment.yml)
 
 
 ## Project Architecture
@@ -92,17 +127,7 @@ This project showcases how to build a production-ready fraud detection system us
 ```
 
 
-### Links to artifacts 
 
-- [Notebook](/src/AI_ML_PROJECT_v1.ipynbsrc/AI_ML_PROJECT_v1.ipynb)
-
-- [Data Generation](src/fraud_analysis_model_final.yaml)
-
-- [Yaml File](src/fraud_analysis_model_final.yaml)
-
-- [Streamlit -App](src/streamlit_app.py)
-
-- [Env Yml](src/environment.yml)
 
 ### Instructions 
 
