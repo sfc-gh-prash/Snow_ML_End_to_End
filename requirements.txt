@@ -1,0 +1,12 @@
+snowflake-snowpark-python
+streamlit
+pypdf
+langchain-snowflake
+langchain_community
+langchain_core
+tomli
+matplotlib
+seaborn
+scikit-learn
+xgboost
+xgboost-cpu
