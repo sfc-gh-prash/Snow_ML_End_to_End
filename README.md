@@ -59,7 +59,7 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 
 - [Data Generation](src/datagneration.sql)
 
-- [Refrence Architecture](src/fraud_analysis_model_final.yaml)
+- [Refrence Architecture](data/Future_architecture_AI_ML.jpeg)
 
 - [Yaml File](src/fraud_analysis_model_final.yaml)
 

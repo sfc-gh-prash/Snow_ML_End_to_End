@@ -66,6 +66,8 @@ This project showcases how to build a production-ready fraud detection system us
 
 - [Refrence Architecture](src/fraud_analysis_model_final.yaml)
 
+- [Refrence Architecture_Lucid](https://lucid.app/lucidchart/04c637a9-6595-400d-aad9-bf2ec3367c2a/edit?invitationId=inv_3c34acad-ae71-4b24-81a8-0497b9a68afc&page=0_0#)
+
 - [Yaml File](src/fraud_analysis_model_final.yaml)
 
 - [Streamlit -App](src/streamlit_app.py)
