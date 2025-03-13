@@ -59,7 +59,9 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 
 - [Data Generation](src/datagneration.sql)
 
-- [Refrence Architecture](data/Future_architecture_AI_ML.jpeg)
+- [Reference Architecture](data/Future_architecture_AI_ML.jpeg)
+
+- [Lucid Architecture]( https://lucid.app/lucidchart/a492f83a-9e57-46dc-8331-49bc18c3fb0f/edit?view_items=~P7Nb63A.FcT&invitationId=inv_302b8323-a6f1-423d-b3b5-6e7a9b3ffec4)
 
 - [Yaml File](src/fraud_analysis_model_final.yaml)
 
