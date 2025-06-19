@@ -13,7 +13,7 @@ This repository demonstrates a comprehensive end-to-end machine learning workflo
 - Engineer fraud detection features using Snowpark & Cortex
 - Utilize Feature Store to:
     - Track engineered fraud indicators
-    - Store feature definitions for reproducible fraud detection signals
+    - Store feature definitions for reproducible fraud detection signals..
 
 ###### Model Development
 

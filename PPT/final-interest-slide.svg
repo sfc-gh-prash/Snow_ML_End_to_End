@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#ffffff" />
+  
+  <!-- Header bar -->
+  <rect width="1200" height="100" fill="#0066cc" />
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="34" font-weight="bold" text-anchor="middle" fill="white">Why I'm Interested in the AI/ML Specialist Role at Snowflake</text>
+  
+  <!-- Light blue background for content -->
+  <rect x="0" y="100" width="1200" height="600" fill="#f5f9ff" />
+  
+  <!-- Left column -->
+  <g transform="translate(100, 170)">
+    <!-- Circle with number -->
+    <circle cx="28" cy="28" r="28" fill="#21b6d7" />
+    <text x="28" y="37" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">1</text>
+    
+    <!-- Title and description -->
+    <text x="70" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">Unlocking Customer Value</text>
+    <text x="70" y="60" font-family="Arial, sans-serif" font-size="18" fill="#555">Driving measurable ROI from data investments</text>
+  </g>
+  
+  <g transform="translate(100, 270)">
+    <!-- Circle with number -->
+    <circle cx="28" cy="28" r="28" fill="#21b6d7" />
+    <text x="28" y="37" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">2</text>
+    
+    <!-- Title and description -->
+    <text x="70" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">Data-AI Convergence</text>
+    <text x="70" y="60" font-family="Arial, sans-serif" font-size="18" fill="#555">Leveraging Snowflake's unique market position</text>
+  </g>
+  
+  <g transform="translate(100, 370)">
+    <!-- Circle with number -->
+    <circle cx="28" cy="28" r="28" fill="#21b6d7" />
+    <text x="28" y="37" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">3</text>
+    
+    <!-- Title and description -->
+    <text x="70" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">Cutting-Edge Innovation</text>
+    <text x="70" y="60" font-family="Arial, sans-serif" font-size="18" fill="#555">Implementing Snowpark, ML Functions, LLMs</text>
+  </g>
+  
+  <!-- Right column -->
+  <g transform="translate(650, 170)">
+    <!-- Circle with number -->
+    <circle cx="28" cy="28" r="28" fill="#21b6d7" />
+    <text x="28" y="37" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">4</text>
+    
+    <!-- Title and description -->
+    <text x="70" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">Ecosystem &amp; Regional Expansion</text>
+    <text x="70" y="60" font-family="Arial, sans-serif" font-size="18" fill="#555">Growing regional presence through partnerships</text>
+  </g>
+  
+  <g transform="translate(650, 270)">
+    <!-- Circle with number -->
+    <circle cx="28" cy="28" r="28" fill="#21b6d7" />
+    <text x="28" y="37" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">5</text>
+    
+    <!-- Title and description -->
+    <text x="70" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">Voice of the Customer</text>
+    <text x="70" y="60" font-family="Arial, sans-serif" font-size="18" fill="#555">Driving product improvements from field insights</text>
+  </g>
+  
+  <g transform="translate(650, 370)">
+    <!-- Circle with number -->
+    <circle cx="28" cy="28" r="28" fill="#21b6d7" />
+    <text x="28" y="37" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">6</text>
+    
+    <!-- Title and description -->
+    <text x="70" y="28" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#333">Cross-Industry Impact</text>
+    <text x="70" y="60" font-family="Arial, sans-serif" font-size="18" fill="#555">Solving diverse enterprise AI challenges</text>
+  </g>
+</svg>

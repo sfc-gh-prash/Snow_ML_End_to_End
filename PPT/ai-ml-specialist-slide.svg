@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <!-- Background -->
+  <rect width="960" height="540" fill="#f0f8ff" />
+  
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="960" height="80" fill="#0055a5" />
+  <text x="30" y="50" font-family="Arial, sans-serif" font-size="32" fill="white" font-weight="bold">Why I'm Interested in the AI/ML Specialist Role at Snowflake</text>
+  
+  <!-- Content Area with Two Columns -->
+  <g transform="translate(40, 110)">
+    <!-- Column 1 -->
+    <g>
+      <circle cx="30" cy="30" r="15" fill="#29b5e8" />
+      <text x="30" y="35" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">1</text>
+      <text x="60" y="35" font-family="Arial, sans-serif" font-size="22" fill="#333333" font-weight="bold">Unlocking Customer Value</text>
+      <text x="60" y="65" font-family="Arial, sans-serif" font-size="18" fill="#555555">Driving measurable ROI from data investments</text>
+      
+      <circle cx="30" cy="125" r="15" fill="#29b5e8" />
+      <text x="30" y="130" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">2</text>
+      <text x="60" y="130" font-family="Arial, sans-serif" font-size="22" fill="#333333" font-weight="bold">Data-AI Convergence</text>
+      <text x="60" y="160" font-family="Arial, sans-serif" font-size="18" fill="#555555">Leveraging Snowflake's unique market position</text>
+      
+      <circle cx="30" cy="220" r="15" fill="#29b5e8" />
+      <text x="30" y="225" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">3</text>
+      <text x="60" y="225" font-family="Arial, sans-serif" font-size="22" fill="#333333" font-weight="bold">Cutting-Edge Innovation</text>
+      <text x="60" y="255" font-family="Arial, sans-serif" font-size="18" fill="#555555">Implementing Snowpark, ML Functions, LLMs</text>
+    </g>
+    
+    <!-- Column 2 -->
+    <g transform="translate(480, 0)">
+      <circle cx="30" cy="30" r="15" fill="#29b5e8" />
+      <text x="30" y="35" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">4</text>
+      <text x="60" y="35" font-family="Arial, sans-serif" font-size="22" fill="#333333" font-weight="bold">Cross-Industry Impact</text>
+      <text x="60" y="65" font-family="Arial, sans-serif" font-size="18" fill="#555555">Solving diverse enterprise AI challenges</text>
+      
+      <circle cx="30" cy="125" r="15" fill="#29b5e8" />
+      <text x="30" y="130" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">5</text>
+      <text x="60" y="130" font-family="Arial, sans-serif" font-size="22" fill="#333333" font-weight="bold">Voice of the Customer</text>
+      <text x="60" y="160" font-family="Arial, sans-serif" font-size="18" fill="#555555">Driving product improvements from field insights</text>
+      
+      <circle cx="30" cy="220" r="15" fill="#29b5e8" />
+      <text x="30" y="225" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">6</text>
+      <text x="60" y="225" font-family="Arial, sans-serif" font-size="22" fill="#333333" font-weight="bold">Ecosystem Expansion</text>
+      <text x="60" y="255" font-family="Arial, sans-serif" font-size="18" fill="#555555">Growing regional presence through partnerships</text>
+    </g>
+  </g>
+</svg>
